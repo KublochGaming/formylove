@@ -1,148 +1,27 @@
 <!DOCTYPE html>
-<html lang="cs">
-<head>
-<meta charset="UTF-8">
-<title>Budeš moje Valentýnka? :heart:</title>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Valentine</title>
+  </head>
+  <body>
+    <main class="container">
+      <img class="cat-img" src="img/cat-0.jpg" alt="Picture of a cat" />
+      <p class="title">Will you be my Valentine?</p>
+      <div class="buttons">
+        <button type="button" class="btn btn--yes">Yes</button>
+        <button type="button" class="btn btn--no">No</button>
+      </div>
+    </main>
 
-<!-- Romantický font -->
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
-<style>
-body {
-    margin: 0;
-    height: 100vh;
-    overflow: hidden;
-    font-family: 'Poppins', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(-45deg, #ff4d6d, #ff8fa3, #ffc2d1, #ffe5ec);
-    background-size: 400% 400%;
-    animation: gradient 10s ease infinite;
-}
-
-@keyframes gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-.container {
-    text-align: center;
-    position: relative;
-}
-
-.gif {
-    width: 200px;
-    margin-bottom: 20px;
-}
-
-h1 {
-    font-family: 'Pacifico', cursive;
-    font-size: 3em;
-    color: white;
-    margin-bottom: 40px;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-}
-
-button {
-    font-size: 1.3em;
-    padding: 15px 30px;
-    margin: 10px;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: 0.3s ease;
-    font-weight: 600;
-}
-
-#yes {
-    background-color: white;
-    color: #ff4d6d;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-#yes:hover {
-    transform: scale(1.1);
-}
-
-#no {
-    background-color: #ff4d6d;
-    color: white;
-    position: absolute;
-}
-
-.heart {
-    position: absolute;
-    font-size: 25px;
-    animation: float 4s linear infinite;
-}
-
-@keyframes float {
-    from { transform: translateY(0); opacity: 1; }
-    to { transform: translateY(-300px); opacity: 0; }
-}
-</style>
-</head>
-<body>
-
-<div class="container">
-
-    <!-- TADY vlož svůj GIF -->
-    <img src="tvoje-gif.gif" class="gif">
-
-    <h1>Budeš moje Valentýnka? :heart:</h1>
-
-    <button id="yes">ANO :sparkling_heart:</button>
-    <button id="no">NE :cry:</button>
-</div>
-
-<audio id="music" loop>
-    <source src="tvoje-pisnicka.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-const noBtn = document.getElementById("no");
-const yesBtn = document.getElementById("yes");
-const music = document.getElementById("music");
-
-let noTexts = ["NE :cry:", "Opravdu?", "Jsi si jistá? :flushed:", "To nemůžeš :sob:", "Prosíím :heart:"];
-let moveCount = 0;
-
-document.body.addEventListener("click", () => {
-    music.play();
-}, { once: true });
-
-noBtn.addEventListener("mouseover", () => {
-    let x = Math.random() * (window.innerWidth - 120);
-    let y = Math.random() * (window.innerHeight - 80);
-
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
-
-    noBtn.style.transform = `scale(${1 - moveCount * 0.1})`;
-
-    if (moveCount < noTexts.length - 1) {
-        moveCount++;
-        noBtn.textContent = noTexts[moveCount];
-    }
-});
-
-yesBtn.addEventListener("click", () => {
-    document.body.innerHTML = "<h1 style='font-family:Pacifico; color:white; text-align:center; margin-top:40vh;'>JSEM NEJŠŤASTNĚJŠÍ NA SVĚTĚ :heart:</h1>";
-
-    for (let i = 0; i < 40; i++) {
-        let heart = document.createElement("div");
-        heart.innerHTML = ":heart:";
-        heart.classList.add("heart");
-        heart.style.left = Math.random() * window.innerWidth + "px";
-        heart.style.top = window.innerHeight + "px";
-        document.body.appendChild(heart);
-
-        setTimeout(() => heart.remove(), 4000);
-    }
-});
-</script>
-
-</body>
+    <script type="module" src="script.js"></script>
+  </body>
 </html>
