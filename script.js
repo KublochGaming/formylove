@@ -29,7 +29,8 @@ noButton.addEventListener("click", function () {
 function handleYesClick() {
   titleElement.innerHTML = "Yayyy Miluju těěě!! :3";
   buttonsContainer.classList.add("hidden");
-  catImg.src = "img/cat-cute.gif";
+  catImg.src = "img/love.gif";
+  startHearts();
 }
 
 function resizeYesButton() {
