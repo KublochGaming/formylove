@@ -75,3 +75,19 @@ body {
 .hidden {
   display: none;
 }
+
+.heart {
+  position: fixed;
+  top: -10px;
+  font-size: 2rem;
+  animation: fall linear forwards;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
